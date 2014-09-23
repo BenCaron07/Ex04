@@ -3,42 +3,43 @@ import 'dart:math' as math;
 void main() {
   
   //Exercise 4.1
+    print("Exercise 4.1");
     int numbers = 10;
     String sequence = fibonacciIteration(numbers);
     print(sequence);
-    
     print("___________"); 
     
   //Exercise 4.2
+    print("Exercise 4.2");
     int w = 800;
     int h = 600;   
     print(location(w, h));
-    
     print("___________");
    
   //Exercise 4.3  
+    print("Exercise 4.3");
     int birthYear = 1993;
     int birthMonth = 06;
     int birthDay = 07;
     print("${age(birthDay, birthMonth, birthYear)}");
-       
     print("___________");
     
   //Exercise 4.4
+    print("Exercise 4.4");
     int yearB = 5;
     double interestRate = 4.8;
     double initialInvestment = 1000.0;
     print("${calculateInterest(initialInvestment, interestRate, yearB)}");
-    
     print("___________");
     
   //Exercise 4.5 
-    int theNumber = 8;
-    int max = 16;
-    String theTable = table(theNumber, max);
-    print(theTable);
-  
+    print("Exercise 4.5");
+    int n = 16;
+    int t = 8;
+    print("${table8(n,t)}");
+         
 }
+
 //Exercise 4.1
 String fibonacciIteration(int a) {
   int z = 0, x = 1, c = 1, v = 1;
@@ -52,6 +53,7 @@ String fibonacciIteration(int a) {
   }
   return result;
 }
+
 //Exercise 4.2
 String location(int w, int h){
  var angle = 45;
@@ -63,7 +65,6 @@ String location(int w, int h){
  'End line: (${xEnd.toStringAsFixed(2)}, ${yEnd.toStringAsFixed(2)})';
  return Coordinates;
 } 
-
 
 //Exercise 4.3
 String age(int birthDay, int birthMonth, int birthYear){
@@ -115,14 +116,13 @@ String calculateInterest(double initialInvestment, double interestRate, int year
 }
 
 //Exercise 4.5
-String table(int theNumber, int max) {
- String line = '';
- for (int v = 0; v < (max); v ++ ){
-   var result = theNumber * v;
-   var operation = '$theNumber x $v = $result';
-   print(operation);
-   
+String table8(int n, int t) {
+  int a;
+  String table = '';
+  for (int v = 1; v <= (n); v ++ ){
+   a = t;
+    a = a * v;
+    table="$table ${t} * ${v} = ${a} \n";  
  }
- return line;
+ return table;
 }
-
