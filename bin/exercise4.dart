@@ -4,125 +4,118 @@ void main() {
   
   //Exercise 4.1
     print("Exercise 4.1");
-    int numbers = 10;
-    String sequence = fibonacciIteration(numbers);
-    print(sequence);
+    String result = Fibonacci(11);
+    print(result);
     print("___________"); 
     
   //Exercise 4.2
     print("Exercise 4.2");
-    int w = 800;
-    int h = 600;   
-    print(location(w, h));
+    var beginX = 800/2;
+    var beginY = 600/2;
+    print ("Start line: x= $beginX ,  y= $beginY ");
+    print (location(800, 600, 160, 45)) ;
     print("___________");
    
   //Exercise 4.3  
     print("Exercise 4.3");
-    int birthYear = 1993;
-    int birthMonth = 06;
-    int birthDay = 07;
-    print("${age(birthDay, birthMonth, birthYear)}");
+    print (Calculatetime(1993, 06, 07) ) ;
     print("___________");
     
   //Exercise 4.4
     print("Exercise 4.4");
-    int yearB = 5;
-    double interestRate = 4.8;
-    double initialInvestment = 1000.0;
-    print("${calculateInterest(initialInvestment, interestRate, yearB)}");
+    Compound_interest(1000, 0.048, 5);
     print("___________");
     
   //Exercise 4.5 
     print("Exercise 4.5");
-    int n = 16;
-    int t = 8;
-    print("${table8(n,t)}");
+      int number_a = 8;
+      int number_b = 16;
+      String timestable = Table8(number_a, number_b);
+      print('$timestable\n');
+    }
          
-}
 
 //Exercise 4.1
-String fibonacciIteration(int a) {
-  int z = 0, x = 1, c = 1, v = 1;
-  String result = '0' ' 1';
-  while (v < a) {
-    c = z + x;
-    result = '$result $c';
-    z = x; 
-    x = c;
-    v = v + 1;
+String Fibonacci(int c) {
+  int a = 0;
+  int b = 1;
+  String fibonacciList;
+  
+  if (c >= 1) {
+    fibonacciList = "0";
+  }
+  if (c >= 2) {
+    fibonacciList = "$fibonacciList 1";
+  }
+  
+  if (c >= 3) {
+   
+    for(int calculation = 2; calculation < c; calculation++) {
+      int total = a + b;
+      fibonacciList = "$fibonacciList $total";
+      a = b;
+      b = total;
+    }
+  }
+  
+  return fibonacciList;
+}
+
+//Exercise 4.2
+num convertRadians (num angle) {
+  return (angle / 180 * math.PI) ; 
+}
+
+String location(num a, num b, num l, num angle) {
+  a /= 2 ;
+  b /= 2 ;
+  angle = convertRadians(angle) ;
+
+  var pX = ((l * math.cos(angle)) + a).toStringAsFixed(2) ;
+  var pY = ((l * math.sin(angle)) + b).toStringAsFixed(2) ;
+  
+  return 'End line: x= $pX , y= $pY' ;
+}
+
+
+//Exercise 4.3
+Calculatetime(int years, int months, int days) {
+  var a = new DateTime.now() ;
+  var b = new DateTime(a.year, a.month, a.day, 12, 0, 0, 0) ; 
+  var birthday = new DateTime(years, months, days, 12, 0, 0, 0) ; 
+  var difference = b.difference(birthday) ; 
+  var c = (difference.inDays) ;
+  var numYears = (c / 365.2425).floor() ; 
+  var numMonths = (((c / 365.2425) - (numYears)) * 12).floor() ; // Average days per year = 365 + 1/4 - 1/100 + 1/400 = 365.2425 days in one yeat on average.
+  var numDays = (((((c / 365.2425) - (numYears)) * 12) - numMonths) * 30.436875).floor() ; // 365.2425 days / 12 months = 30.436875 days per month on average
+  
+  
+  
+  return 'There is $numYears years, $numMonths months and $numDays days between $b at midnight and my birthday at midnight.' ;
+}
+
+
+//Exercise 4.4
+Compound_interest(num capital, num interest, num duration) {
+ var total = 0;
+ var result = [];
+ for(var i = 1 ; i <= duration ; i++){
+   total = capital * interest;
+   capital = capital + total;
+   print(capital);
+   result.add(total);
+ }
+ return result;
+}
+
+//Exercise 4.5
+Table8(a, b) {
+  var result = "\n";
+  var r = a;
+  for(var i = 1; i < b + 1; i++){
+    var x = a * i;
+    result = '$result $i. 8 x $i = $x. \n';
   }
   return result;
 }
 
-//Exercise 4.2
-String location(int w, int h){
- var angle = 45;
- var hypotenuse = 160;
- var radian = angle * (math.PI / 180);
- var xEnd = w/2 + hypotenuse*math.cos(radian);
- var yEnd = h/2 + hypotenuse*math.sin(radian);
- String Coordinates = 'Start line: (${(w/2).toStringAsFixed(2)}, ${(h/2).toStringAsFixed(2)}) \n'
- 'End line: (${xEnd.toStringAsFixed(2)}, ${yEnd.toStringAsFixed(2)})';
- return Coordinates;
-} 
-
-//Exercise 4.3
-String age(int birthDay, int birthMonth, int birthYear){
-  var today = new DateTime.now();
-      String date = today.toString();
-      var dateB = date.split(' ');
-      var separateDate = dateB[0];
-      var separateElements = separateDate.split('-');
-     
-      var years = int.parse(separateElements[0]);
-      var month = int.parse(separateElements[1]);
-      var day = int.parse(separateElements[2]);
-      
-      int yearsN;
-      int monthsN;
-      int daysN;
-      if (month < birthMonth) {
-        yearsN = (years-birthYear) - 1;
-        monthsN = (birthMonth-month);
-        monthsN = (birthMonth - monthsN);
-        
-      } else {
-        yearsN = (years-birthYear);
-        monthsN = (month-birthMonth);
-      }
-      if (day < birthDay){      
-        monthsN = monthsN - 1;
-        daysN = (birthDay-day);
-         if (monthsN == 0) {
-           monthsN = 11;
-         }
-      } else {
-        daysN = (day-birthDay);
-      }
-      
-      String give = '$yearsN years  $monthsN months  $daysN days \n';
-      return give;
-}
-
-//Exercise 4.4
-String calculateInterest(double initialInvestment, double interestRate, int yearB) {
-    double monthlyInterest = initialInvestment;
-    String result = "";
-    for(int a=1; a<yearB+1; a++){ 
-    monthlyInterest = monthlyInterest + ((interestRate * monthlyInterest)/100);
-    result="$result ${a} years = ${monthlyInterest}\n"; 
-    }
-    return result;
-}
-
-//Exercise 4.5
-String table8(int n, int t) {
-  int a;
-  String table = '';
-  for (int v = 1; v <= (n); v ++ ){
-   a = t;
-    a = a * v;
-    table="$table ${t} * ${v} = ${a} \n";  
- }
- return table;
-}
