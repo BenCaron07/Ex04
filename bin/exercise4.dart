@@ -86,8 +86,8 @@ Calculatetime(int years, int months, int days) {
   var difference = b.difference(birthday) ; 
   var c = (difference.inDays) ;
   var numYears = (c / 365.2425).floor() ; 
-  var numMonths = (((c / 365.2425) - (numYears)) * 12).floor() ; // Average days per year = 365 + 1/4 - 1/100 + 1/400 = 365.2425 days in one yeat on average.
-  var numDays = (((((c / 365.2425) - (numYears)) * 12) - numMonths) * 30.436875).floor() ; // 365.2425 days / 12 months = 30.436875 days per month on average
+  var numMonths = (((c / 365.2425) - (numYears)) * 12).floor() ; // Average days per year: 365 + 1/4 - 1/100 + 1/400 = 365.2425 days in one year on average.
+  var numDays = (((((c / 365.2425) - (numYears)) * 12) - numMonths) * 30.436875).floor() ; // Average days per month: 365.2425 days / 12 months = 30.436875 days per month on average.
   
   
   
