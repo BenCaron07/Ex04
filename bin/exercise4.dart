@@ -10,9 +10,6 @@ void main() {
     
   //Exercise 4.2
     print("Exercise 4.2");
-    var beginX = 800/2;
-    var beginY = 600/2;
-    print ("Start line: x= $beginX ,  y= $beginY ");
     print (location(800, 600, 160, 45)) ;
     print("___________");
    
@@ -70,11 +67,14 @@ String location(num a, num b, num l, num angle) {
   a /= 2 ;
   b /= 2 ;
   angle = convertRadians(angle) ;
+  
+  var beginX = 800/2;
+  var beginY = 600/2;
 
   var pX = ((l * math.cos(angle)) + a).toStringAsFixed(2) ;
   var pY = ((l * math.sin(angle)) + b).toStringAsFixed(2) ;
   
-  return 'End line: x= $pX , y= $pY' ;
+  return 'Start line: x= $beginX ,  y= $beginY \nEnd line: x= $pX , y= $pY';
 }
 
 
