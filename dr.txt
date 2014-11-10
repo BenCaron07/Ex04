@@ -1,5 +1,22 @@
 ex04
 
+18/20
+
+-1
+attention: formatage (voir: https://www.dartlang.org/articles/style-guide/)
+Table8(a, b) {
+-->
+table8(a, b) {
+
+4.3
+Exercise 4.3
+There is 21 years, 5 months and 3 days between 2014-11-10 12:00:00.000 
+at midnight and my birthday at midnight.
+-1
+se il vous plaît afficher votre date de naissance
+
+---
+
 ?/20
 
 similaire à l'exercice 4 de Pierre-Olivier Brassard ?
