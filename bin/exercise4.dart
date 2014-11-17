@@ -6,22 +6,22 @@ void main() {
     print("Exercise 4.1");
     String result = Fibonacci(11);
     print(result);
-    print("___________"); 
+    print(""); 
     
   //Exercise 4.2
     print("Exercise 4.2");
     print (location(800, 600, 160, 45)) ;
-    print("___________");
+    print("");
    
   //Exercise 4.3  
     print("Exercise 4.3");
     print (Calculatetime(1993, 06, 07) ) ;
-    print("___________");
+    print("");
     
   //Exercise 4.4
     print("Exercise 4.4");
     Compound_interest(1000, 0.048, 5);
-    print("___________");
+    print("");
     
   //Exercise 4.5 
     print("Exercise 4.5");
@@ -91,7 +91,7 @@ Calculatetime(int years, int months, int days) {
   
   
   
-  return 'There is $numYears years, $numMonths months and $numDays days between $b at midnight and my birthday at midnight.' ;
+  return 'There is $numYears years, $numMonths months and $numDays days between $b at midnight and my birthday 1993-06-07 at midnight.' ;
 }
 
 
