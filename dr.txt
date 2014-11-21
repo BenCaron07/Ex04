@@ -1,5 +1,15 @@
 ex04
 
+19/20
+
+-1
+attention: formatage (voir: https://www.dartlang.org/articles/style-guide/)
+Table8(a, b) {
+-->
+table8(a, b) {
+
+---
+
 18/20
 
 -1
